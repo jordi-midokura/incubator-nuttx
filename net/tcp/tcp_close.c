@@ -327,7 +327,7 @@ static inline int tcp_close_disconnect(FAR struct socket *psock)
       tcp_stop_monitor(conn, TCP_CLOSE);
 
       /* Free network resources */
-
+      conn->crefs = 0;
       tcp_free(conn);
     }
 
